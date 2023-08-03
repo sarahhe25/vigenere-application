@@ -1,5 +1,7 @@
 package Entities;
 
+import Entities.Vigenere;
+
 public class VigenereFactory {
 
     /**
