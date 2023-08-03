@@ -56,10 +56,10 @@ public class VigenereController {
     }
 
     private void encryptMessage(Scanner scanner) {
-        System.out.print("Enter the plaintext message (only alphabets allowed, no spaces): ");
+        System.out.print("Enter the plaintext message (only alphabet, spaces, or punctuations): ");
         String plaintext = readAlphabeticInput(scanner);
 
-        System.out.print("Enter the encryption key (only alphabets allowed, no spaces): ");
+        System.out.print("Enter the encryption key (only alphabet, spaces, or punctuations): ");
         String key = readAlphabeticInput(scanner);
 
         Vigenere vigenere = vigenereFactory.createVigenere(plaintext, key);
@@ -71,11 +71,11 @@ public class VigenereController {
     }
 
     private void decryptMessage(Scanner scanner) {
-        System.out.print("Enter 'T' to enter ciphertext manually, 'F' to read ciphertext from a file, or 'X' to quit: ");
+        System.out.print("Enter 'M' to enter ciphertext manually, 'F' to read ciphertext from a file, or 'X' to quit: ");
         String choice = scanner.nextLine().trim().toUpperCase();
 
         switch (choice) {
-            case "T":
+            case "M":
                 decryptCiphertextManually(scanner);
                 break;
             case "F":
@@ -85,15 +85,15 @@ public class VigenereController {
                 System.out.println("Exiting decryption. Returning to main menu.");
                 break;
             default:
-                System.out.println("Invalid choice. Please choose 'T', 'F', or 'X'.");
+                System.out.println("Invalid choice. Please choose 'M', 'F', or 'X'.");
         }
     }
 
     private void decryptCiphertextManually(Scanner scanner) {
-        System.out.print("Enter the ciphertext to decrypt (only alphabets allowed, no spaces): ");
+        System.out.print("Enter the ciphertext to decrypt (only alphabet, spaces, or punctuations): ");
         String ciphertext = readAlphabeticInput(scanner);
 
-        System.out.print("Enter the decryption key (only alphabets allowed, no spaces): ");
+        System.out.print("Enter the decryption key (only alphabet, spaces, or punctuations): ");
         String decryptionKey = readAlphabeticInput(scanner);
 
         Vigenere vigenere = vigenereFactory.createVigenere(ciphertext, decryptionKey);
@@ -114,7 +114,7 @@ public class VigenereController {
                 return;
             }
 
-            System.out.print("Enter the decryption key (only alphabets allowed, no spaces): ");
+            System.out.print("Enter the decryption key (only alphabet, spaces, or punctuations): ");
             String decryptionKey = readAlphabeticInput(scanner);
 
             Vigenere vigenere = vigenereFactory.createVigenere(ciphertext, decryptionKey);
@@ -131,7 +131,7 @@ public class VigenereController {
         String saveChoice = scanner.nextLine().toLowerCase();
 
         if ("yes".equals(saveChoice)) {
-            System.out.print("Enter the filename to save ciphertext: ");
+            System.out.print("Enter the filename to save ciphertext (old files will be overwritten): ");
             String filename = scanner.nextLine();
             try {
                 writer.writeToFile(filename, encryptedText);
