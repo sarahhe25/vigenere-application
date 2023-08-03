@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class SimpleCiphertextReader implements CiphertextReader {
     /**
-     * @param filename
-     * @return content of file in a string
+     * @param filename file to read from
+     * @return String of content from the file
      */
     @Override
     public String readFromFile(String filename) {

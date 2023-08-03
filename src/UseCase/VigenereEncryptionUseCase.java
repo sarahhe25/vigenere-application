@@ -5,7 +5,7 @@ import Entities.Vigenere;
 public class VigenereEncryptionUseCase implements EncryptionBoundary {
     /**
      * vigenere encryption algorithm method
-     * @param vigenere
+     * @param vigenere a vigenere object, contains message and key and static alphabet size
      * @return encrypted ciphertext String
      */
     @Override
@@ -15,10 +15,11 @@ public class VigenereEncryptionUseCase implements EncryptionBoundary {
         String plaintext = vigenere.getMessage().toUpperCase();
         int keyIndex = 0;
 
+        // Algorithm
         for (char c : plaintext.toCharArray()) {
             if (Character.isLetter(c)) {
                 int shift = key.charAt(keyIndex) - 'A';
-                char encryptedChar = (char) (((c - 'A' + shift) % 26) + 'A');
+                char encryptedChar = (char) (((c - 'A' + shift) % Vigenere.getAlphabetSize()) + 'A');
                 encryptedText.append(encryptedChar);
                 keyIndex = (keyIndex + 1) % key.length();
             } else {

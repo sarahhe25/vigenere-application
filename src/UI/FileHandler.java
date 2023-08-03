@@ -7,6 +7,11 @@ public class FileHandler {
     private static CiphertextReader reader;
     private static CiphertextWriter writer;
 
+    /**
+     * Constructor
+     * @param reader initialize reader object
+     * @param writer initialize writer object
+     */
     public FileHandler(CiphertextReader reader, CiphertextWriter writer) {
         this.reader = reader;
         this.writer = writer;
@@ -15,8 +20,8 @@ public class FileHandler {
     /**
      * New feature in the encryption process
      * Save ciphertext to file
-     * @param filename
-     * @param ciphertext
+     * @param filename file location to save to
+     * @param ciphertext ciphertext from encryption process
      */
     void saveCiphertextToFile(String filename, String ciphertext) {
         try {
@@ -29,7 +34,7 @@ public class FileHandler {
     /**
      * New feature in the decryption process
      * Read ciphertext from file
-     * @param scanner
+     * @param scanner scanner object
      * @return ciphertext string
      */
      String readCiphertextFromFile(Scanner scanner) {

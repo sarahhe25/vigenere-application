@@ -8,6 +8,11 @@ public class Vigenere {
     private String key;
     private static final int ALPHABET_SIZE = 26;
 
+    /**
+     * Constructor
+     * @param message message to be encrypted or decrypted
+     * @param key key used in the encryption / decryption process
+     */
     public Vigenere(String message, String key) {
         this.message = message;
         this.key = key;
@@ -21,7 +26,7 @@ public class Vigenere {
         return key;
     }
 
-    public int getAlphabetSize() {
+    public static int getAlphabetSize() {
         return ALPHABET_SIZE;
     }
 }

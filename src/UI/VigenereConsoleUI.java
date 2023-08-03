@@ -10,6 +10,9 @@ public class VigenereConsoleUI {
         presenter = new VigenerePresenter();
     }
 
+    /**
+     * Main menu. Users choose to encrypt, decrypt, or exit program.
+     */
     public void start() {
         while (true) {
             System.out.println();
@@ -31,7 +34,7 @@ public class VigenereConsoleUI {
                 case "X":
                     System.out.println("Exiting. Thanks for using the Vigenere Cipher App");
                     scanner.close();
-                    return;
+                    return; // exit
                 default:
                     System.out.println("Please enter 'E', 'D', or 'X' for encryption, decryption, " +
                             "or exit, respectively");

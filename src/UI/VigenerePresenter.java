@@ -12,7 +12,9 @@ public class VigenerePresenter {
     private final DecryptionBoundary decryptor;
     private final FileHandler fileHandler;
 
-
+    /**
+     * Constructor
+     */
     public VigenerePresenter() {
         scanner = new Scanner(System.in);
         vigenereFactory = new VigenereFactory();
@@ -32,7 +34,7 @@ public class VigenerePresenter {
         String message;
         while (true) {
             message = scanner.nextLine().trim();
-            // Use regex pattern to validate the input
+            // Use regex pattern to validate the input; allows alphabet, punctuation, space
             if (message.matches("^[a-zA-Z ,.!?]+$")) {
                 return message;
             } else {
@@ -60,7 +62,7 @@ public class VigenerePresenter {
 
     /**
      * Part of encryption logic. Takes user input for message and key, calls encryption use case
-     * @param scanner
+     * @param scanner scanner object
      */
     void encryptMessage(Scanner scanner) {
         System.out.print("Enter the plaintext message (only alphabetic letters, spaces, or punctuations): ");
@@ -77,14 +79,15 @@ public class VigenerePresenter {
 
     /**
      * New feature in encryption, gives user the option to save ciphertext to a file
-     * @param scanner
-     * @param ciphertext
+     * @param scanner scanner object
+     * @param ciphertext generated ciphertext from encryption process
      */
     private void saveToFileOption(Scanner scanner, String ciphertext) {
         System.out.print("Do you want to save the ciphertext to a file? (Y/N): ");
         String saveChoice = scanner.nextLine().toUpperCase();
         if (saveChoice.equals("Y")) {
-            System.out.print("Enter the filename to save ciphertext (old files will be overwritten): ");
+            System.out.print("Enter the filename to save ciphertext (if appending to existing file, " +
+                    "make sure the ciphertext share the same key): ");
             String filename = scanner.nextLine();
             fileHandler.saveCiphertextToFile(filename, ciphertext);
             System.out.println("Returning to main menu.");
@@ -97,7 +100,7 @@ public class VigenerePresenter {
      * Part of decryption logic.
      * Allows users to choose whether to enter text manually or decrypt from file
      * Delegates decryption process to helper methods
-     * @param scanner
+     * @param scanner scanner object
      */
     void decryptMessage(Scanner scanner) {
         System.out.println();
@@ -133,7 +136,8 @@ public class VigenerePresenter {
     }
 
     /**
-     * Enter key and call decryption use case.
+     * Enter key and call decryption use case
+     * @param ciphertext user input decrypted message
      */
     private void decryptCiphertext(String ciphertext) {
         System.out.print("Enter the decryption key (only alphabet letters): ");

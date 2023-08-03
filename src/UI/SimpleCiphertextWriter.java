@@ -6,12 +6,15 @@ import java.io.IOException;
 
 public class SimpleCiphertextWriter implements CiphertextWriter {
     /**
-     * @param filename
-     * @param content
+     * Write ciphertext to file
+     * If file doesn't exist, create new file
+     * @param filename file to write to
+     * @param content the ciphertext to write into the file
      */
     @Override
     public void writeToFile(String filename, String content) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+        // append to existing file. Create new file if no existing file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
             writer.write(content);
         } catch (IOException e) {
             System.out.println("Error saving ciphertext to file: " + e.getMessage());
