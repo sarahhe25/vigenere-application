@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
       <module fileurl="file://$PROJECT_DIR$/vigenere-application.iml" filepath="$PROJECT_DIR$/vigenere-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vigenere-application.main.iml" filepath="$PROJECT_DIR$/.idea/modules/vigenere-application.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vigenere-application.test.iml" filepath="$PROJECT_DIR$/.idea/modules/vigenere-application.test.iml" />
     </modules>
   </component>
 </project>
