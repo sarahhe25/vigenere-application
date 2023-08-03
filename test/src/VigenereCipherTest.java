@@ -21,56 +21,45 @@ public class VigenereCipherTest {
     }
 
     @Test
-    public void testEncryptMessage() {
-        String plaintext = "HELLO";
-        String key = "KEY";
+    public void testEncryption() {
+        String plaintext = "HELLO, WORLD!";
+        String key = "KEYLESS";
         Vigenere vigenere = vigenereFactory.createVigenere(plaintext, key);
 
-        String expectedCiphertext = "RIJVSU";
+        String expectedCiphertext = "RIJWS, OGBPB!";
         String actualCiphertext = encryptionUseCase.encrypt(vigenere);
 
         assertEquals(expectedCiphertext, actualCiphertext);
     }
 
     @Test
-    public void testDecryptMessage() {
-        String ciphertext = "RIJVSU";
-        String key = "KEY";
+    public void testDecryption() {
+        String ciphertext = "RIJWS, OGBPB!";
+        String key = "KEYLESS";
         Vigenere vigenere = vigenereFactory.createVigenere(ciphertext, key);
 
-        String expectedPlaintext = "HELLO";
+        String expectedPlaintext = "HELLO, WORLD!";
         String actualPlaintext = decryptionUseCase.decrypt(vigenere);
 
         assertEquals(expectedPlaintext, actualPlaintext);
     }
 
+    // tests for invalid user inputs is already handled in presenter with regex.
+    // User will not be able to input invalid message or key.
     @Test
-    public void testEmptyKey() {
-        String plaintext = "HELLO";
+    public void testInvalidInput() {
+        String message = "";
         String key = "";
-        Vigenere vigenere = vigenereFactory.createVigenere(plaintext, key);
+        Vigenere vigenere = vigenereFactory.createVigenere(message, key);
 
-        String expectedCiphertext = plaintext; // Empty key does not affect encryption
-        String actualCiphertext = encryptionUseCase.encrypt(vigenere);
+        String expectedEncryptedText = "";
+        String actualEncryptedText = encryptionUseCase.encrypt(vigenere);
 
-        assertEquals(expectedCiphertext, actualCiphertext);
+        assertEquals(expectedEncryptedText, actualEncryptedText);
+
+        String expectedDecryptedText = "";
+        String actualDecryptedText = decryptionUseCase.decrypt(vigenere);
+        assertEquals(expectedDecryptedText, actualDecryptedText);
     }
 
-    @Test
-    public void testInvalidCharacterInKey() {
-        String plaintext = "HELLO";
-        String key = "KEY!";
-        Vigenere vigenere = vigenereFactory.createVigenere(plaintext, key);
-
-        assertThrows(IllegalArgumentException.class, () -> encryptionUseCase.encrypt(vigenere));
-    }
-
-    @Test
-    public void testDecryptInvalidCiphertext() {
-        String invalidCiphertext = "RIJVSU!";
-        String key = "KEY";
-        Vigenere vigenere = vigenereFactory.createVigenere(invalidCiphertext, key);
-
-        assertThrows(IllegalArgumentException.class, () -> decryptionUseCase.decrypt(vigenere));
-    }
 }
