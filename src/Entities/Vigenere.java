@@ -1,5 +1,8 @@
 package Entities;
 
+/**
+ * Class representing Vigenere Cipher Entities
+ */
 public class Vigenere {
     private String message;
     private String key;

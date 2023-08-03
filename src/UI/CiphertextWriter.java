@@ -1,4 +1,4 @@
-package UseCase;
+package UI;
 
 import java.io.IOException;
 

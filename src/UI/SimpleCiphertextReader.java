@@ -1,10 +1,14 @@
-package UseCase;
+package UI;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class SimpleCiphertextReader implements CiphertextReader {
+    /**
+     * @param filename
+     * @return content of file in a string
+     */
     @Override
     public String readFromFile(String filename) {
         StringBuilder content = new StringBuilder();

@@ -3,6 +3,11 @@ package UseCase;
 import Entities.Vigenere;
 
 public class VigenereDecryptionUseCase implements DecryptionBoundary {
+    /**
+     * Vigenere decryption algorithm method
+     * @param vigenere
+     * @return plaintext in String
+     */
     @Override
     public String decrypt(Vigenere vigenere) {
         StringBuilder decryptedText = new StringBuilder();

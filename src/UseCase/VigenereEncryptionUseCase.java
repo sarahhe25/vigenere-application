@@ -3,6 +3,11 @@ package UseCase;
 import Entities.Vigenere;
 
 public class VigenereEncryptionUseCase implements EncryptionBoundary {
+    /**
+     * vigenere encryption algorithm method
+     * @param vigenere
+     * @return encrypted ciphertext String
+     */
     @Override
     public String encrypt(Vigenere vigenere) {
         StringBuilder encryptedText = new StringBuilder();
