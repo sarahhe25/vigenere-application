@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class SimpleCiphertextReader implements CiphertextReader {
+public class CiphertextFileReader implements CiphertextReader {
     /**
      * @param filename file to read from
      * @return String of content from the file

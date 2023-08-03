@@ -3,7 +3,7 @@ package UI;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class FileHandler {
+public class VigenereFileHandler {
     private static CiphertextReader reader;
     private static CiphertextWriter writer;
 
@@ -12,7 +12,7 @@ public class FileHandler {
      * @param reader initialize reader object
      * @param writer initialize writer object
      */
-    public FileHandler(CiphertextReader reader, CiphertextWriter writer) {
+    public VigenereFileHandler(CiphertextReader reader, CiphertextWriter writer) {
         this.reader = reader;
         this.writer = writer;
     }
@@ -23,7 +23,7 @@ public class FileHandler {
      * @param filename file location to save to
      * @param ciphertext ciphertext from encryption process
      */
-    void saveCiphertextToFile(String filename, String ciphertext) {
+    void writeCiphertextToFile(String filename, String ciphertext) {
         try {
             writer.writeToFile(filename, ciphertext);
             System.out.println("Ciphertext saved to file: " + filename);

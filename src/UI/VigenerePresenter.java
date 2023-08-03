@@ -1,16 +1,19 @@
 package UI;
 
-import java.util.Scanner;
-
 import Entities.VigenereFactory;
-import UseCase.*;
+import UseCase.DecryptionBoundary;
+import UseCase.EncryptionBoundary;
+import UseCase.VigenereDecryptionUseCase;
+import UseCase.VigenereEncryptionUseCase;
+
+import java.util.Scanner;
 
 public class VigenerePresenter {
     private final Scanner scanner;
     private final VigenereFactory vigenereFactory;
     private final EncryptionBoundary encryptor;
     private final DecryptionBoundary decryptor;
-    private final FileHandler fileHandler;
+    private final VigenereFileHandler fileHandler;
 
     /**
      * Constructor
@@ -20,14 +23,15 @@ public class VigenerePresenter {
         vigenereFactory = new VigenereFactory();
         encryptor = new VigenereEncryptionUseCase();
         decryptor = new VigenereDecryptionUseCase();
-        CiphertextReader reader = new SimpleCiphertextReader();
-        CiphertextWriter writer = new SimpleCiphertextWriter();
-        fileHandler = new FileHandler(reader, writer);
+        CiphertextReader reader = new CiphertextFileReader();
+        CiphertextWriter writer = new CiphertextFileWriter();
+        fileHandler = new VigenereFileHandler(reader, writer);
     }
 
     /**
      * Input validator for message user inputs
      * only allows alphabet, spaces, and punctuation
+     * keep prompting user until valid message is inputted
      * @return user input message
      */
     private String readMessageInput() {
@@ -38,7 +42,7 @@ public class VigenerePresenter {
             if (message.matches("^[a-zA-Z ,.!?]+$")) {
                 return message;
             } else {
-                System.out.print("Invalid input. Please enter alphabetic letters, spaces, or punctuations: ");
+                System.out.print("Invalid input. Please enter only alphabetic letters, space and punctuation allowed: ");
             }
         }
     }
@@ -46,6 +50,7 @@ public class VigenerePresenter {
     /**
      * Input validator for key user inputs
      * only allows alphabetic letters
+     * keep prompting user until valid key is inputted
      * @return user input key
      */
     private String readKeyInput() {
@@ -65,7 +70,11 @@ public class VigenerePresenter {
      * @param scanner scanner object
      */
     void encryptMessage(Scanner scanner) {
-        System.out.print("Enter the plaintext message (only alphabetic letters, spaces, or punctuations): ");
+        System.out.println();
+        System.out.println("===============");
+        System.out.println("Encryption Menu");
+        System.out.println("===============");
+        System.out.print("Enter the plaintext message (only alphabetic letters, space, and punctuation): ");
         String plaintext = readMessageInput();
 
         System.out.print("Enter the encryption key (only alphabetic letters): ");
@@ -86,10 +95,9 @@ public class VigenerePresenter {
         System.out.print("Do you want to save the ciphertext to a file? (Y/N): ");
         String saveChoice = scanner.nextLine().toUpperCase();
         if (saveChoice.equals("Y")) {
-            System.out.print("Enter the filename to save ciphertext (if appending to existing file, " +
-                    "make sure the ciphertext share the same key): ");
+            System.out.print("Enter the filename to save ciphertext (if appending to existing file, make sure the ciphertext share the same key): ");
             String filename = scanner.nextLine();
-            fileHandler.saveCiphertextToFile(filename, ciphertext);
+            fileHandler.writeCiphertextToFile(filename, ciphertext);
             System.out.println("Returning to main menu.");
         } else {
             System.out.println("Returning to main menu.");
@@ -104,6 +112,9 @@ public class VigenerePresenter {
      */
     void decryptMessage(Scanner scanner) {
         System.out.println();
+        System.out.println("===============");
+        System.out.println("Decryption Menu");
+        System.out.println("===============");
         System.out.println("Choose an option:");
         System.out.println("Decrypt from manual input (Enter M)");
         System.out.println("Decrypt from file (Enter F)");
@@ -114,7 +125,7 @@ public class VigenerePresenter {
 
         switch (choice) {
             case "M":
-                System.out.print("Enter the ciphertext to decrypt (only alphabetic letters, spaces, or punctuations): ");
+                System.out.print("Enter the ciphertext to decrypt (only alphabetic letters, space, and punctuation): ");
                 ciphertext = readMessageInput();
                 decryptCiphertext(ciphertext);
                 break;

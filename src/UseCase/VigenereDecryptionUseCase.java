@@ -14,7 +14,7 @@ public class VigenereDecryptionUseCase implements DecryptionBoundary {
         String ciphertext = vigenere.getMessage().toUpperCase();
         String key = vigenere.getKey().toUpperCase();
         int keyIndex = 0;
-        int alphabet_size = Vigenere.getAlphabetSize();
+        int alphabet_size = Vigenere.getAlphabetSize(); // is 26
 
         // Algorithm
         for (char c : ciphertext.toCharArray()) {

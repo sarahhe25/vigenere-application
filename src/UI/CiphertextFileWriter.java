@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class SimpleCiphertextWriter implements CiphertextWriter {
+public class CiphertextFileWriter implements CiphertextWriter {
     /**
      * Write ciphertext to file
      * If file doesn't exist, create new file

@@ -16,6 +16,9 @@ public class VigenereConsoleUI {
     public void start() {
         while (true) {
             System.out.println();
+            System.out.println("=========");
+            System.out.println("Main Menu");
+            System.out.println("=========");
             System.out.println("Choose an option:");
             System.out.println("Encrypt a message (Enter E)");
             System.out.println("Decrypt a message (Enter D)");
@@ -32,7 +35,7 @@ public class VigenereConsoleUI {
                     presenter.decryptMessage(scanner);
                     break;
                 case "X":
-                    System.out.println("Exiting. Thanks for using the Vigenere Cipher App");
+                    System.out.println("Exiting. Thank you for using the Vigenere Cipher App.");
                     scanner.close();
                     return; // exit
                 default:
