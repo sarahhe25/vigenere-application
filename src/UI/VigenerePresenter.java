@@ -95,7 +95,7 @@ public class VigenerePresenter {
         System.out.print("Do you want to save the ciphertext to a file? (Y/N): ");
         String saveChoice = scanner.nextLine().toUpperCase();
         if (saveChoice.equals("Y")) {
-            System.out.print("Enter the filename to save ciphertext (if appending to existing file, make sure the ciphertext share the same key): ");
+            System.out.print("Enter the filename to save ciphertext (replaces existing files): ");
             String filename = scanner.nextLine();
             fileHandler.writeCiphertextToFile(filename, ciphertext);
             System.out.println("Returning to main menu.");

@@ -23,7 +23,7 @@ public class VigenereFileHandler {
      * @param filename file location to save to
      * @param ciphertext ciphertext from encryption process
      */
-    void writeCiphertextToFile(String filename, String ciphertext) {
+    public void writeCiphertextToFile(String filename, String ciphertext) {
         try {
             writer.writeToFile(filename, ciphertext);
             System.out.println("Ciphertext saved to file: " + filename);
@@ -37,7 +37,7 @@ public class VigenereFileHandler {
      * @param scanner scanner object
      * @return ciphertext string
      */
-     String readCiphertextFromFile(Scanner scanner) {
+     public String readCiphertextFromFile(Scanner scanner) {
         System.out.print("Enter the filename to read ciphertext from: ");
         String filename = scanner.nextLine();
 
