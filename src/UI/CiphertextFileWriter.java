@@ -13,11 +13,20 @@ public class CiphertextFileWriter implements CiphertextWriter {
      */
     @Override
     public void writeToFile(String filename, String content) {
-        // append to existing file. Create new file if no existing file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
-            writer.write(content);
+        // TODO after can decrypt line by line, allow append true in FileWriter
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            // Split the content into lines
+            String[] lines = content.split(System.lineSeparator());
+            // Write each line to the file
+            for (int i = 0; i < lines.length; i++) {
+                writer.write(lines[i]);
+                if (i < lines.length - 1) {
+                    writer.newLine(); // Append a new line after each line (except the last line)
+                }
+            }
         } catch (IOException e) {
             System.out.println("Error saving ciphertext to file: " + e.getMessage());
         }
     }
+
 }
