@@ -18,15 +18,15 @@ public class VigenereEncryptionUseCase implements EncryptionBoundary {
         // Algorithm
         for (char c : plaintext.toCharArray()) {
             if (Character.isLetter(c)) {
-                int shift = key.charAt(keyIndex) - 'A';
+                int shift = key.charAt(keyIndex) - 'A'; // determine shift value based on corresponding char from key
+                // vigenere encryption formula
                 char encryptedChar = (char) (((c - 'A' + shift) % Vigenere.getAlphabetSize()) + 'A');
                 encryptedText.append(encryptedChar);
                 keyIndex = (keyIndex + 1) % key.length();
             } else {
-                encryptedText.append(c);
+                encryptedText.append(c); // keep non-alphabetic characters unchanged
             }
         }
-
         return encryptedText.toString();
     }
 }

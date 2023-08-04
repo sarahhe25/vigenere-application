@@ -22,6 +22,7 @@ public class VigenereCipherTest {
         vigenereFactory = new VigenereFactory();
     }
 
+    // test VigenereFactory creation
     @Test
     public void testCreateVigenere() {
         // Arrange
@@ -38,6 +39,7 @@ public class VigenereCipherTest {
         assertEquals(key, vigenere.getKey());
     }
 
+    // test encryption algorithm
     @Test
     public void testEncryption() {
         String plaintext = "HELLO";
@@ -50,6 +52,7 @@ public class VigenereCipherTest {
         assertEquals(expectedCiphertext, actualCiphertext);
     }
 
+    // test decryption algorithm
     @Test
     public void testDecryption() {
         String ciphertext = "RIJVS";

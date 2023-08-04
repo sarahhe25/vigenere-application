@@ -19,16 +19,15 @@ public class VigenereDecryptionUseCase implements DecryptionBoundary {
         // Algorithm
         for (char c : ciphertext.toCharArray()) {
             if (Character.isLetter(c)) {
-                int shift = key.charAt(keyIndex) - 'A';
+                int shift = key.charAt(keyIndex) - 'A'; // determine shift value based on corresponding char from key
+                // vigenere decryption formula
                 char decryptedChar = (char) (((c - 'A' - shift + alphabet_size) % alphabet_size) + 'A');
                 decryptedText.append(decryptedChar);
                 keyIndex = (keyIndex + 1) % key.length();
             } else {
-                decryptedText.append(c);
+                decryptedText.append(c); // keep non-alphabetic characters unchanged
             }
         }
-
         return decryptedText.toString();
-
     }
 }

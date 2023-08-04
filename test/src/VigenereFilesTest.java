@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VigenereFilesTest {
 
+    // test regular read from file
     @Test
     public void testReadFromFile(@TempDir Path tempDir) throws IOException {
         // Arrange
@@ -25,13 +26,11 @@ public class VigenereFilesTest {
 
         CiphertextReader reader = new CiphertextFileReader();
 
-        // Act
         String actualContent = reader.readFromFile(tempFile.getAbsolutePath());
-
-        // Assert
         assertEquals(expectedContent, actualContent);
     }
 
+    // test regular write to file
     @Test
     public void testWriteToFile(@TempDir Path tempDir) throws IOException {
         // Arrange
@@ -39,11 +38,8 @@ public class VigenereFilesTest {
         File tempFile = tempDir.resolve("testFile.txt").toFile();
 
         CiphertextWriter writer = new CiphertextFileWriter();
-
-        // Act
         writer.writeToFile(tempFile.getAbsolutePath(), content);
 
-        // Assert
         assertTrue(tempFile.exists());
 
         try (BufferedReader fileReader = new BufferedReader(new FileReader(tempFile))) {
@@ -71,11 +67,8 @@ public class VigenereFilesTest {
     @Test
     public void testReadFromFile_FileNotFound() throws IOException {
         String nonExistingFile = "nonExistingFile.txt";
-
         CiphertextReader reader = new CiphertextFileReader();
-
         String content = reader.readFromFile(nonExistingFile);
-
         assertEquals("", content); // Or assert null if the method returns null for file not found.
     }
 
@@ -91,9 +84,4 @@ public class VigenereFilesTest {
         assertEquals(0, tempFile.length());
         tempFile.delete();
     }
-
-
-
-
-
 }

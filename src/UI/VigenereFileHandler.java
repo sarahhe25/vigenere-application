@@ -38,7 +38,7 @@ public class VigenereFileHandler {
      * @return ciphertext string
      */
      public String readCiphertextFromFile(Scanner scanner) {
-        System.out.print("Enter the filename to read ciphertext from: ");
+        System.out.print("Enter the name of an existing file to get the ciphertext: ");
         String filename = scanner.nextLine();
 
         try {
