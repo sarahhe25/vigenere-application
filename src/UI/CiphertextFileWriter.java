@@ -7,13 +7,13 @@ import java.io.IOException;
 public class CiphertextFileWriter implements CiphertextWriter {
     /**
      * Write ciphertext to file
-     * If file doesn't exist, create new file
+     * create new file
      * @param filename file to write to
      * @param content the ciphertext to write into the file
      */
     @Override
     public void writeToFile(String filename, String content) {
-        // TODO after can decrypt line by line, allow append true in FileWriter
+        // create new file; overwrites existing files
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             // Split the content into lines
             String[] lines = content.split(System.lineSeparator());

@@ -95,7 +95,7 @@ public class VigenerePresenter {
         System.out.print("Do you want to save the ciphertext to a file? (Y/N): ");
         String saveChoice = scanner.nextLine().toUpperCase();
         if (saveChoice.equals("Y")) {
-            System.out.print("Enter the filename to save ciphertext (replaces existing files): ");
+            System.out.print("Enter the file name to save ciphertext (replaces existing files): ");
             String filename = scanner.nextLine();
             fileHandler.writeCiphertextToFile(filename, ciphertext);
             System.out.println("Returning to main menu.");
@@ -134,7 +134,7 @@ public class VigenerePresenter {
                 if (!ciphertext.isEmpty()) { // if no file exists or file is empty
                     decryptCiphertext(ciphertext);
                 } else {
-                    System.out.println("Returning to decryption menu. Please choose a new file or input manually.");
+                    System.out.println("Returning to decryption menu. Please choose an existing file or input manually.");
                     decryptMessage(scanner); // Go back to the "Decrypt Message" menu
                 }
                 break;
