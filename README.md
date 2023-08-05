@@ -1,5 +1,5 @@
 # Vigenere Cipher Application
-The Vigenere Cipher Application is a simple Java program that allows users to encrypt and decrypt messages using the Vigenere cipher algorithm. The Vigenere cipher is a method of encrypting alphabetic text by using a simple form of polyalphabetic substitution.
+The Vigenere Cipher Application is a simple Java program that allows users to encrypt and decrypt messages using the Vigenere cipher algorithm. The Vigenere cipher is a method of encrypting alphabetic text by using a simple form of polyalphabetic substitution. Implemented for CSC207 AI-Assisted Software Design Project. 
 
 # How to Use
 1. Clone the repository to your local machine.
