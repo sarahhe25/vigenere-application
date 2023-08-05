@@ -1,5 +1,3 @@
-package Entities;
-
 /**
  * Class representing Vigenere Cipher Entities
  */

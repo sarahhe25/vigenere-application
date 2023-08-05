@@ -1,7 +1,3 @@
-package UseCase;
-
-import Entities.Vigenere;
-
 public class VigenereEncryptionUseCase implements EncryptionBoundary {
     /**
      * vigenere encryption algorithm method

@@ -1,11 +1,3 @@
-package UI;
-
-import Entities.VigenereFactory;
-import UseCase.DecryptionBoundary;
-import UseCase.EncryptionBoundary;
-import UseCase.VigenereDecryptionUseCase;
-import UseCase.VigenereEncryptionUseCase;
-
 import java.util.Scanner;
 
 public class VigenerePresenter {

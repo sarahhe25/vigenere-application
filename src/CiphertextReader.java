@@ -1,5 +1,3 @@
-package UI;
-
 import java.io.IOException;
 
 public interface CiphertextReader {

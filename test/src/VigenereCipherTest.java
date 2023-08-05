@@ -1,7 +1,3 @@
-import Entities.Vigenere;
-import Entities.VigenereFactory;
-import UseCase.VigenereDecryptionUseCase;
-import UseCase.VigenereEncryptionUseCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
