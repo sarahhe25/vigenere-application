@@ -2,11 +2,15 @@ package UseCase;
 
 import Entities.Vigenere;
 
+/**
+ * The VigenereDecryptionUseCase class provides the implementation for decrypting messages using the Vigenere cipher algorithm.
+ */
 public class VigenereDecryptionUseCase implements DecryptionBoundary {
     /**
      * Vigenere decryption algorithm method
-     * @param vigenere a vigenere object, contains message and key and static alphabet size
-     * @return plaintext in String
+     *
+     * @param vigenere A vigenere object, contains message and key and static alphabet size
+     * @return The decrypted plaintext.
      */
     @Override
     public String decrypt(Vigenere vigenere) {

@@ -3,6 +3,7 @@ package UseCase;
 import Entities.Vigenere;
 
 public class VigenereEncryptionUseCase implements EncryptionBoundary {
+
     /**
      * vigenere encryption algorithm method
      * @param vigenere a vigenere object, contains message and key and static alphabet size

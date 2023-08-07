@@ -4,10 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Implements the CiphertextReader interface to read ciphertext from a file.
+ */
 public class CiphertextFileReader implements CiphertextReader {
+
     /**
-     * @param filename file to read from
-     * @return String of content from the file
+     * Reads ciphertext from a file and returns it as a string.
+     * @param filename The name of the file to read from.
+     * @return A string containing the content of the file.
      */
     @Override
     public String readFromFile(String filename) {

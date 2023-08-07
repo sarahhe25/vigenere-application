@@ -1,7 +1,9 @@
 package Entities;
 
-import Entities.Vigenere;
-
+/**
+ * The VigenereFactory class is responsible for creating instances of the Vigenere class,
+ * which represents a Vigenere cipher with a specific message and key.
+ */
 public class VigenereFactory {
 
     /**

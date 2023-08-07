@@ -2,16 +2,25 @@ package UI;
 
 import java.util.Scanner;
 
+/**
+ * The VigenereConsoleUI class provides a console-based user interface for the Vigenere Cipher application.
+ * Users can interactively choose to encrypt, decrypt, or exit the program.
+ */
 public class VigenereConsoleUI {
     private Scanner scanner;
     private VigenerePresenter presenter;
+
+    /**
+     * Initializes the console user interface and its presenter.
+     */
     public VigenereConsoleUI() {
         scanner = new Scanner(System.in);
         presenter = new VigenerePresenter();
     }
 
     /**
-     * Main menu. Users choose to encrypt, decrypt, or exit program.
+     * Displays the main menu and handles user input.
+     * Users can choose to encrypt a message, decrypt a message, or exit the program.
      */
     public void start() {
         while (true) {
