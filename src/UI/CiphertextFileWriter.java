@@ -4,6 +4,9 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Implements the CiphertextWriter interface to write ciphertext to a new file.
+ */
 public class CiphertextFileWriter implements CiphertextWriter {
     /**
      * Write ciphertext to file

@@ -1,7 +1,7 @@
 package Entities;
 
 /**
- * Class representing Vigenere Cipher Entities
+ * Class representing a Vigenere Cipher Entity
  */
 public class Vigenere {
     private String message;

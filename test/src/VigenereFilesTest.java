@@ -11,9 +11,19 @@ import java.nio.file.Path;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * JUnit tests for validating file operations related to ciphertext using the Vigenere cipher application.
+ * This test suite covers scenarios such as reading from and writing to files, handling empty files,
+ * and handling non-existing files. It ensures that the file handling components of the application
+ * perform as expected under different circumstances.
+ */
 public class VigenereFilesTest {
 
-    // test regular read from file
+    /**
+     * Test reading content from a regular file.
+     * @param tempDir Temporary directory provided by JUnit for testing
+     * @throws IOException if an I/O error occurs during test execution
+     */
     @Test
     public void testReadFromFile(@TempDir Path tempDir) throws IOException {
         // Arrange
@@ -30,7 +40,11 @@ public class VigenereFilesTest {
         assertEquals(expectedContent, actualContent);
     }
 
-    // test regular write to file
+    /**
+     * Test writing content to a regular file.
+     * @param tempDir Temporary directory provided by JUnit for testing
+     * @throws IOException if an I/O error occurs during test execution
+     */
     @Test
     public void testWriteToFile(@TempDir Path tempDir) throws IOException {
         // Arrange
@@ -50,6 +64,11 @@ public class VigenereFilesTest {
         }
     }
 
+    /**
+     * Test reading from an empty file.
+     * @param tempDir Temporary directory provided by JUnit for testing
+     * @throws IOException if an I/O error occurs during test execution
+     */
     @Test
     public void testReadFromFile_EmptyFile(@TempDir Path tempDir) throws IOException {
         File tempFile = tempDir.resolve("emptyFile.txt").toFile();
@@ -64,6 +83,10 @@ public class VigenereFilesTest {
         tempFile.delete();
     }
 
+    /**
+     * Test reading from a non-existing file.
+     * @throws IOException if an I/O error occurs during test execution
+     */
     @Test
     public void testReadFromFile_FileNotFound() throws IOException {
         String nonExistingFile = "nonExistingFile.txt";
@@ -72,6 +95,11 @@ public class VigenereFilesTest {
         assertEquals("", content); // Or assert null if the method returns null for file not found.
     }
 
+    /**
+     * Test writing empty content to a file.
+     * @param tempDir Temporary directory provided by JUnit for testing
+     * @throws IOException if an I/O error occurs during test execution
+     */
     @Test
     public void testWriteToFile_EmptyContent(@TempDir Path tempDir) throws IOException {
         String emptyContent = "";

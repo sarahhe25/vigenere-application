@@ -3,14 +3,19 @@ package UI;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * The VigenereFileHandler class provides methods to handle reading and writing ciphertext to/from files.
+ * It integrates the CiphertextReader and CiphertextWriter to perform these tasks.
+ */
 public class VigenereFileHandler {
     private static CiphertextReader reader;
     private static CiphertextWriter writer;
 
     /**
-     * Constructor
-     * @param reader initialize reader object
-     * @param writer initialize writer object
+     * Constructor that initializes the reader and writer objects.
+     *
+     * @param reader The CiphertextReader object for reading ciphertext from files.
+     * @param writer The CiphertextWriter object for writing ciphertext to files.
      */
     public VigenereFileHandler(CiphertextReader reader, CiphertextWriter writer) {
         this.reader = reader;
@@ -19,7 +24,7 @@ public class VigenereFileHandler {
 
     /**
      * New feature in the encryption process
-     * Save ciphertext to file
+     * Writes ciphertext to file
      * @param filename file location to save to
      * @param ciphertext ciphertext from encryption process
      */
@@ -33,7 +38,7 @@ public class VigenereFileHandler {
     }
     /**
      * New feature in the decryption process
-     * Read ciphertext from file
+     * Reads ciphertext from file
      * @param scanner scanner object
      * @return ciphertext string
      */

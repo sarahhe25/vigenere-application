@@ -8,6 +8,10 @@ import UseCase.VigenereEncryptionUseCase;
 
 import java.util.Scanner;
 
+/**
+ * The VigenerePresenter class acts as a presenter between the user interface and the use case layer.
+ * It handles user inputs, interactions, and calls appropriate use cases for encryption and decryption.
+ */
 public class VigenerePresenter {
     private final Scanner scanner;
     private final VigenereFactory vigenereFactory;
@@ -16,7 +20,7 @@ public class VigenerePresenter {
     private final VigenereFileHandler fileHandler;
 
     /**
-     * Constructor
+     * Constructor to initialize VigenerePresenter and set
      */
     public VigenerePresenter() {
         scanner = new Scanner(System.in);

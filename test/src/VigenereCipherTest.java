@@ -8,13 +8,22 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-// test use case algorithms and vigenerefactory object creation
+/**
+ * JUnit tests for verifying the correctness of Vigenere cipher encryption and decryption functionality.
+ * This test suite covers scenarios related to VigenereFactory object creation, encryption algorithm,
+ * and decryption algorithm. The tests ensure that the encryption and decryption processes produce the
+ * expected results for various inputs and edge cases.
+ */
 public class VigenereCipherTest {
 
     private VigenereEncryptionUseCase encryptionUseCase;
     private VigenereDecryptionUseCase decryptionUseCase;
     private VigenereFactory vigenereFactory;
 
+    /**
+     * Set up the necessary components for each test case.
+     * Initialize encryption and decryption use cases along with the VigenereFactory.
+     */
     @BeforeEach
     public void setUp() {
         encryptionUseCase = new VigenereEncryptionUseCase();
@@ -22,7 +31,10 @@ public class VigenereCipherTest {
         vigenereFactory = new VigenereFactory();
     }
 
-    // test VigenereFactory creation
+    /**
+     * Test the creation of a Vigenere object using the VigenereFactory.
+     * Ensures that the created Vigenere object contains the expected message and key.
+     */
     @Test
     public void testCreateVigenere() {
         // Arrange
@@ -39,7 +51,10 @@ public class VigenereCipherTest {
         assertEquals(key, vigenere.getKey());
     }
 
-    // test encryption algorithm
+    /**
+     * Test the encryption algorithm of the Vigenere cipher.
+     * Compares the output ciphertext with the expected result for a given plaintext and key.
+     */
     @Test
     public void testEncryption() {
         String plaintext = "HELLO";
@@ -52,7 +67,10 @@ public class VigenereCipherTest {
         assertEquals(expectedCiphertext, actualCiphertext);
     }
 
-    // test decryption algorithm
+    /**
+     * Test the decryption algorithm of the Vigenere cipher.
+     * Compares the output decrypted text with the expected result for a given ciphertext and key.
+     */
     @Test
     public void testDecryption() {
         String ciphertext = "RIJVS";
@@ -68,6 +86,11 @@ public class VigenereCipherTest {
     // test cases for invalid user inputs are not necessary
     // because presenter uses regex to handle invalid inputs and will keep prompting until valid input is entered
     // still include one edge case to test algorithm
+
+    /**
+     * Test an edge case with empty input for both plaintext and key.
+     * Ensures that an empty input does not affect the encryption algorithm.
+     */
     @Test
     public void testEmptyInput() {
         String plaintext = " ";
