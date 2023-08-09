@@ -8,6 +8,8 @@ import java.io.IOException;
  * Implements the CiphertextWriter interface to write ciphertext to a new file.
  */
 public class CiphertextFileWriter implements CiphertextWriter {
+
+    private final String OUTPUT_PATH = "./output/";
     /**
      * Write ciphertext to file
      * create new file
@@ -17,7 +19,8 @@ public class CiphertextFileWriter implements CiphertextWriter {
     @Override
     public void writeToFile(String filename, String content) {
         // create new file; overwrites existing files
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+        String strFullPath = OUTPUT_PATH + "/" + filename;
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(strFullPath))) {
             // Split the content into lines
             String[] lines = content.split(System.lineSeparator());
             // Write each line to the file
