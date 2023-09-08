@@ -45,10 +45,10 @@ The program mostly adheres to Clean Architecture principles, promoting modularit
 
 
 ## Some issues that were identified and addressed:
-1. Long and Complex Methods that violate Single Responsibility: Refactored classes and methods to adhere to the Single Responsibility Principle and improve readability.
-2. Dependency Inversion Principle (DIP): We introduced interfaces for EncryptionBoundary and DecryptionBoundary, decoupling the VigenereController from specific use case implementations. 
+1. Long and Complex Methods that violate Single Responsibility: refactored classes and methods to adhere to the Single Responsibility Principle and improve readability.
+2. Dependency Inversion Principle (DIP): introduced interfaces for EncryptionBoundary and DecryptionBoundary, decoupling the VigenereController from specific use case implementations. 
 3. Resource management of scanner: implemented singleton pattern to use one scanner to handle user input
-4. Duplication of Code: We refactored and reused common methods, reducing code duplication and promoting maintainability. 
+4. Duplication of Code: refactored and reused common methods, reducing code duplication and promoting maintainability. 
 5. Error handling: included specific exception messages, graceful error recovery (allowing the user to re-enter), try-catch and throwing errors. 
 
 ## Remaining code smell & room for improvement
